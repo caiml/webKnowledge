@@ -101,7 +101,7 @@ BFC布局规则：
  - 高度塌陷
 
 
-### 清楚浮动
+### 清除浮动
 浮动的元素布局时不会占据父元素的布局空间，即父元素布局时不会管浮动元素，浮动元素有可能超出父元素，从而对其他元素造成影响。
 
 方法一：让父元素变为一个BFC。
@@ -109,7 +109,7 @@ BFC布局规则：
 必须定义width或zoom:1，同时不能定义height，使用overflow:auto时，浏览器会自动检查浮动区域的高度
 
 
-方法二： 使用伪元素清楚浮动
+方法二： 使用伪元素清除浮动
 ```css
 .container::after {
   content: " ";
@@ -205,8 +205,9 @@ BFC布局规则：
 ### 单行文本溢出显示省略号
 ```css
 overflow: hidden;
-text-overflow: ellipsis;
-white-space: no-wrap;
+text-overflow: ellipsis;//CSS3属性 text-overflow 属性规定当文本溢出包含元素时发生的事情。ellipsis显示省略符号来代表被修剪的文本
+                        //clip修剪文本  string使用给定的字符串来代表被修剪的文本
+white-space: no-wrap;  //CSS属性 设置如何处理元素内的空白 no-wrap代表文本不会换行，直到遇到 <br> 标签为止。
 ```
 
 
@@ -215,7 +216,7 @@ white-space: no-wrap;
 ```css
 overflow: hidden;
 text-overflow: ellipsis;
-display: -webkit-box;
+display: -webkit-box; //CSS3
 -webkit-line-clamp: 3;
 -webkit-box-orient: vertical;
 ```
